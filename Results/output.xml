@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.9.2 on darwin)" generated="20210407 15:03:34.311" rpa="false" schemaversion="2">
+<suite id="s1" name="Amazon tests" source="/Users/Natallia_Akulich/PycharmProjects/Amazon_robot/Tests/Amazon_tests.robot">
+<test id="s1-t1" name="User should sign in to check out">
+<kw name="Begin Web Test" library="CommonKey" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210407 15:03:34.466" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20210407 15:03:34.466" endtime="20210407 15:03:37.078"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:34.466" endtime="20210407 15:03:37.079"/>
+</kw>
+<kw name="Search for Products" library="AmazonKey">
+<kw name="Load" library="LandingPage">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${START_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20210407 15:03:37.080" level="INFO">Opening url 'https://www.amazon.com/'</msg>
+<status status="PASS" starttime="20210407 15:03:37.080" endtime="20210407 15:03:40.018"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:37.080" endtime="20210407 15:03:40.018"/>
+</kw>
+<kw name="Verify Page Loaded" library="LandingPage">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>AmazonBasics</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210407 15:03:40.019" endtime="20210407 15:03:40.045"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:40.018" endtime="20210407 15:03:40.045"/>
+</kw>
+<kw name="Search for Products" library="TopNav">
+<kw name="Enter Search Term" library="TopNav">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${TOPNAV_SEARCH_BAR}</arg>
+<arg>${SEARCH_TERM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210407 15:03:40.047" level="INFO">Typing text 'Ferrari 458' into text field 'id=twotabsearchtextbox'.</msg>
+<status status="PASS" starttime="20210407 15:03:40.046" endtime="20210407 15:03:40.206"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:40.046" endtime="20210407 15:03:40.207"/>
+</kw>
+<kw name="Submit Search" library="TopNav">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${TOPNAV_SEARCH_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210407 15:03:40.207" level="INFO">Clicking button 'id=nav-search-submit-button'.</msg>
+<status status="PASS" starttime="20210407 15:03:40.207" endtime="20210407 15:03:46.200"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:40.207" endtime="20210407 15:03:46.201"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:40.045" endtime="20210407 15:03:46.201"/>
+</kw>
+<kw name="Verify Search Completed" library="SearchResults">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>results for "${SEARCH_TERM}"</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210407 15:03:46.201" endtime="20210407 15:03:46.216"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:46.201" endtime="20210407 15:03:46.217"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:37.079" endtime="20210407 15:03:46.217"/>
+</kw>
+<kw name="Select Product from Search Results" library="AmazonKey">
+<kw name="Click Product Link" library="SearchResults">
+<doc>Clicks on the first product in the search results page</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//span[@cel_widget_id='MAIN-SEARCH_RESULTS-1']//h2//a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20210407 15:03:46.218" level="INFO">Clicking link 'xpath=//span[@cel_widget_id='MAIN-SEARCH_RESULTS-1']//h2//a'.</msg>
+<status status="PASS" starttime="20210407 15:03:46.217" endtime="20210407 15:03:49.858"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:46.217" endtime="20210407 15:03:49.858"/>
+</kw>
+<kw name="Verify Page Loaded" library="Product">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Back to results</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210407 15:03:49.859" endtime="20210407 15:03:49.889"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:49.859" endtime="20210407 15:03:49.889"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:46.217" endtime="20210407 15:03:49.889"/>
+</kw>
+<kw name="Add Product to Cart" library="AmazonKey">
+<kw name="Add to Cart" library="Product">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=add-to-cart-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210407 15:03:49.890" level="INFO">Clicking button 'id=add-to-cart-button'.</msg>
+<status status="PASS" starttime="20210407 15:03:49.890" endtime="20210407 15:03:52.197"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:49.890" endtime="20210407 15:03:52.198"/>
+</kw>
+<kw name="Verify Product Added" library="Cart">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Proceed to checkout (1 item)</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210407 15:03:52.198" endtime="20210407 15:03:52.214"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:52.198" endtime="20210407 15:03:52.215"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:49.889" endtime="20210407 15:03:52.215"/>
+</kw>
+<kw name="Begin Checkout" library="AmazonKey">
+<kw name="Proceed to Checkout" library="Cart">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id=hlb-ptc-btn-native</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20210407 15:03:52.216" level="INFO">Clicking link 'id=hlb-ptc-btn-native'.</msg>
+<status status="PASS" starttime="20210407 15:03:52.216" endtime="20210407 15:03:54.855"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:52.216" endtime="20210407 15:03:54.855"/>
+</kw>
+<kw name="Verify Page Loaded" library="SignIn">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${SIGNIN_MAIN_HEADING}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20210407 15:03:54.865" level="INFO">Current page contains element 'xpath=//h1[contains(@class, 'a-spacing-small')]'.</msg>
+<status status="PASS" starttime="20210407 15:03:54.856" endtime="20210407 15:03:54.865"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${SIGNIN_MAIN_HEADING}</arg>
+<arg>Sign-In</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20210407 15:03:54.866" level="INFO">Verifying element 'xpath=//h1[contains(@class, 'a-spacing-small')]' contains exact text 'Sign-In'.</msg>
+<status status="PASS" starttime="20210407 15:03:54.865" endtime="20210407 15:03:54.878"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:54.855" endtime="20210407 15:03:54.878"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:52.215" endtime="20210407 15:03:54.878"/>
+</kw>
+<kw name="End Web Test" library="CommonKey" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210407 15:03:54.879" endtime="20210407 15:03:55.097"/>
+</kw>
+<status status="PASS" starttime="20210407 15:03:54.878" endtime="20210407 15:03:55.097"/>
+</kw>
+<doc>This is some basic information about the test</doc>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20210407 15:03:34.465" endtime="20210407 15:03:55.097"/>
+</test>
+<doc>This are some simple tests for amazon.com</doc>
+<status status="PASS" starttime="20210407 15:03:34.313" endtime="20210407 15:03:55.098"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Amazon tests">Amazon tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210407 15:03:34.459" level="ERROR">Error in file '/Users/Natallia_Akulich/PycharmProjects/Amazon_robot/Resources/PO/Product.robot' on line 2: Importing library 'Selenium2Library' failed: ModuleNotFoundError: No module named 'Selenium2Library'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/Cellar/python@3.9/3.9.2_4/Frameworks/Python.framework/Versions/3.9/lib/python39.zip
+  /usr/local/Cellar/python@3.9/3.9.2_4/Frameworks/Python.framework/Versions/3.9/lib/python3.9
+  /usr/local/Cellar/python@3.9/3.9.2_4/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload
+  /usr/local/lib/python3.9/site-packages</msg>
+<msg timestamp="20210407 15:03:34.462" level="ERROR">Error in file '/Users/Natallia_Akulich/PycharmProjects/Amazon_robot/Resources/PO/Cart.robot' on line 2: Importing library 'Selenium2Library' failed: ModuleNotFoundError: No module named 'Selenium2Library'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/Cellar/python@3.9/3.9.2_4/Frameworks/Python.framework/Versions/3.9/lib/python39.zip
+  /usr/local/Cellar/python@3.9/3.9.2_4/Frameworks/Python.framework/Versions/3.9/lib/python3.9
+  /usr/local/Cellar/python@3.9/3.9.2_4/Frameworks/Python.framework/Versions/3.9/lib/python3.9/lib-dynload
+  /usr/local/lib/python3.9/site-packages</msg>
+</errors>
+</robot>
