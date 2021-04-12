@@ -11,7 +11,8 @@ Search for Products
     LandingPage.Load
     LandingPage.Verify Page Loaded
     TopNav.Search for Products
-    SearchResults.Verify Search Completed
+    ${ReturnedInfo} =  SearchResults.Verify Search Completed
+    Log  ${ReturnedInfo}
 
 Select Product from Search Results
     SearchResults.Click Product link

@@ -1,8 +1,10 @@
 *** Settings ***
+Library  SeleniumLibrary
 
 *** Keywords ***
 Verify Search Completed
     Wait Until Page Contains  results for "${SEARCH_TERM}"
+    [Return]  Found it!
 
 Click Product Link
     [Documentation]   Clicks on the first product in the search results page
