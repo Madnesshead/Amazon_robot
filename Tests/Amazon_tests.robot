@@ -25,3 +25,7 @@ User should sign in to check out
     AmazonKey.Select Product from Search Results
     AmazonKey.Add Product to Cart
     AmazonKey.Begin Checkout
+
+Search results page should contain 60 products
+    AmazonKey.Search for Products
+    AmazonKey.Verify Page Contains Products  60

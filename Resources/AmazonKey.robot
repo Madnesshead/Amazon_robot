@@ -14,6 +14,10 @@ Search for Products
     ${ReturnedInfo} =  SearchResults.Verify Search Completed
     Log  ${ReturnedInfo}
 
+Verify Page Contains Products
+    [Arguments]  ${ExpectedProductCount}
+    SearchResults.Verify Product Count  ${ExpectedProductCount}
+
 Select Product from Search Results
     SearchResults.Click Product link
     Product.Verify Page Loaded
