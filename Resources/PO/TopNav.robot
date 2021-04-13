@@ -10,7 +10,7 @@ Search for Products
     Submit Search
 
 Enter Search Term
-    Input Text  ${TOPNAV_SEARCH_BAR}  ${SEARCH_TERM}
+    Input Text  ${TOPNAV_SEARCH_BAR}  ${SEARCH_TERM.ferrari}
 
 Submit Search
     Click Button  ${TOPNAV_SEARCH_BUTTON}

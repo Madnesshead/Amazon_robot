@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 
 *** Keywords ***
 Verify Search Completed
-    Wait Until Page Contains  results for "${SEARCH_TERM}"
+    Wait Until Page Contains  results for "${SEARCH_TERM.ferrari}"
     [Return]  Found it!
 
 Verify Product Count

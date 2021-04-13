@@ -8,7 +8,7 @@ Test Teardown  CommonKey.End Web Test
 *** Variables ***
 ${BROWSER} =  chrome
 ${START_URL} =  https://www.amazon.com/
-${SEARCH_TERM} =  Ferrari 458
+&{SEARCH_TERM} =  ferrari=Ferrari 458
 
 *** Test Cases ***
 User can search for products
